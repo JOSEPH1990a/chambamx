@@ -1,0 +1,231 @@
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 11pt;
+}
+h1 {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 163%;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: White;
+	text-align: center;
+}
+h2 {
+	font-family: Verdana;
+	font-size: 127%;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: White;
+	text-align: center;
+}
+h3{
+	font-size: 118%;
+	line-height: normal;
+	font-weight: bold;
+	font-family: Arial;
+	color: Navy;
+	text-transform:capitalize;
+	text-align: left;
+}
+h4{
+	font-size: 109%;
+	line-height: normal;
+	font-weight: bold;
+	font-family: Arial;
+	color: White;
+	background-color: #6181BA;
+	text-transform: uppercase;
+}
+h5{
+	font-size: 109%;
+	font-weight: bold;
+	font-family: Arial;
+	color: Navy;
+	text-transform: uppercase;
+}
+td{
+	font-size: 100%;
+}
+th{
+	font-size: 100%;
+}
+.fondo{
+	background-color: #6181BA;
+	color: White;
+}
+ol{
+	list-style-type: decimal;
+}
+ul{
+	list-style: outside url(img/bala8.gif) square;
+}
+li{
+	list-style-position: outside;
+}
+
+a link{
+	font-family: Verdana;
+	font-size: 127%;
+	color: #330066;
+	text-decoration: underline;
+}
+a:hover {
+	text-decoration:none;
+	background:url(img/bala4.jpg) no-repeat right center;
+}
+span {
+	color:#006;
+	margin-top:10px;
+}
+#contenedor {
+	width: 817px;
+	min-height: 470px;
+	margin: 10px auto;
+	padding: 5px 5px 5px 5px;
+	background-color: White;
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image : url(img/escudo.jpg);
+	text-align: justify;
+}
+#titulo {
+	background-color: #2B5E9B;
+	background-image: url(img/bandaweb.jpg);
+	margin: 10px 0 10px 0;
+	padding: 5px 5px 5px 5px;
+}
+p {
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+#pie {
+	width: 817px;
+	height: 48px;
+	margin: 0px auto;
+	padding: 1px 1px 1px 1px;
+	background-color: #2B5E9B;
+	background-image: url(img/plecaweb.jpg);
+	position:relative;
+	background-position: center bottom;
+}
+.resaltar{
+	color: #8B0000;
+}
+.btncerrar{
+	border-style: groove;
+	border-color: #2B5E9B;
+	border-width: 5px;
+	cursor: pointer;
+	margin: 50px auto;
+}
+
+#archivos{
+	background-image : url(img/archivos.gif);
+	font-weight: bold;
+	border-style:none;
+	background-position : center;
+	background-repeat : no-repeat;
+	width: 100px;
+	height: 87px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#cuestionario{
+	background-image : url(img/cuestionario.gif);
+	font-weight: bold;
+	border-style:none;
+	background-position : center;
+	background-repeat : no-repeat;
+	width: 100px;
+	height: 87px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#documentos{
+	background-image : url(img/documentos.gif);
+	font-weight: bold;
+	border-style:none;
+	background-position : center;
+	background-repeat : no-repeat;
+	width: 100px;
+	height: 87px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#foros{
+	background-image : url(img/foros.gif);
+	font-weight: bold;
+	border-style:none;
+	background-position : center;
+	background-repeat : no-repeat;
+	width: 100px;
+	height: 87px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#practica{
+	background-image : url(img/practica.gif);
+	font-weight: bold;
+	border-style:none;
+	background-position : center;
+	background-repeat : no-repeat;
+	width: 100px;
+	height: 87px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#tareas{
+	background-image : url(img/tareas.gif);
+	font-weight: bold;
+	border-style:none;
+	background-position : center;
+	background-repeat : no-repeat;
+	width: 100px;
+	height: 87px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#wiki{
+	background-image : url(img/wiki.gif);
+	font-weight: bold;
+	border-style:none;
+	background-position : center;
+	background-repeat : no-repeat;
+	width: 100px;
+	height: 87px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#video{
+	background-image : url(img/video.gif);
+	font-weight: bold;
+	border-style:none;
+	background-position : center;
+	background-repeat : no-repeat;
+	width: 100px;
+	height: 87px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#encabezadoweb{
+	background-image : url(img/encabezadoweb.jpg);
+	font-weight: bold;
+	border-style:none;
+	background-position : center;
+	background-repeat : no-repeat;
+	width: 532px;
+	height: 163px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
