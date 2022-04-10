@@ -85,7 +85,7 @@
     </div>
 </section>
 
-<section class="featured-job section p-4">
+<!--<section class="featured-job section p-4">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -97,10 +97,10 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 
 <section id="content">
-
+<!--
 <section class="featured-job section pt-0">
     <div class="container">
         <div class="single-head">
@@ -126,10 +126,10 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <section class="job-category section">
     <div class="container">
-        <div class="row">
+        <!--<div class="row">
             <div class="col-12">
                 <div class="section-title">
                     <span>Categorias</span>
@@ -137,26 +137,26 @@
                     <p>Selecciona una categoría para ver los ultimos empleos publicados.</p>
                 </div>
             </div>
-        </div>
-        <div class="cat-head">
+        </div>-->
+        <!--<div class="cat-head">
             <div class="row">
                 <?php
-                    $sql = "SELECT *FROM `t_categoria`";
+                    /*$sql = "SELECT *FROM `t_categoria`";
                     $mydb->setQuery($sql);
                     $cur = $mydb->loadResultList();
-                    foreach ($cur as $result) {
+                    foreach ($cur as $result) {*/
                 ?>
                 <div class="col-lg-3 col-md-6 col-12">
-                    <a href="<?php echo web_root ?>index.php?q=category&search=<?php echo $result->CATEGORY ?>" class="single-cat wow fadeInUp" data-wow-delay=".2s"  animation-delay: 0.2s; animation-name: none;">
+                    <a href="<?php //echo web_root ?>index.php?q=category&search=<?php echo $result->CATEGORY ?>" class="single-cat wow fadeInUp" data-wow-delay=".2s"  animation-delay: 0.2s; animation-name: none;">
                         <div class="icon">
-                            <?php echo($result->ICONO) ?>
+                            <?php //echo($result->ICONO) ?>
                         </div>
-                        <h3><?php echo $result->CATEGORY ?></h3>
+                        <h3><?php //echo $result->CATEGORY ?></h3>
                     </a>
                 </div>
-                <?php } ?>
+                <?php //} ?>
             </div>
-        </div>
+        </div>-->
     </div>
 </section>
 

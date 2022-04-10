@@ -1,5 +1,8 @@
 <?php 
 	$searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['searchfor'] : '';
+    $search = isset($_POST['SEARCH']) ? ($_POST['SEARCH']!='') ? $_POST['SEARCH'] : 'All' : 'All';
+    $company = isset($_POST['COMPANY']) ? ($_POST['COMPANY']!='') ? $_POST['COMPANY'] : 'All' : 'All';
+    $category = isset($_POST['CATEGORY']) ? ($_POST['CATEGORY']!='') ? $_POST['CATEGORY'] : 'All' : 'All';
 	
 ?>
 <style type="text/css">
@@ -111,102 +114,89 @@ body {
 </style>
 <div class="container">
 	<div class="row">
+		<section class="find-job section">
+            <div class="container">
+                <div class="single-head">
+                    <div class="row">
+                        <!--<div class="col-md-12 ">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pull-left">
+                                        <div class="btn-group">
+                                            <?php 
+                                            /*switch ($searchfor) {
+                                                case 'bycompany':
+                                                    # code...
+                                                echo 'Result : '  . $search . ' | Company : ' . $company;
+                                                    break;
+                                                case 'advancesearch':
+                                                    # code... 
+                                                echo 'Result : '  . $search . ' | Company : ' . $company . ' | Function : ' . $category; 
+                                                    break;
+                                                case 'byfunction':
+                                                    # code... 
+                                                echo 'Result : '  . $search . ' | Function : ' . $category; 
+                                                    break;
 
-		<section class="content">
-			 
-			<div class="col-md-12 ">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="pull-left">
-							<div class="btn-group">
-								<?php 
-
-
-								 $search = isset($_POST['SEARCH']) ? ($_POST['SEARCH']!='') ? $_POST['SEARCH'] : 'All' : 'All';
-								 $company = isset($_POST['COMPANY']) ? ($_POST['COMPANY']!='') ? $_POST['COMPANY'] : 'All' : 'All';
-								 $category = isset($_POST['CATEGORY']) ? ($_POST['CATEGORY']!='') ? $_POST['CATEGORY'] : 'All' : 'All';
-
-								switch ($searchfor) {
-									case 'bycompany':
-										# code...
-									echo 'Result : '  . $search . ' | Company : ' . $company;
-										break;
-									case 'advancesearch':
-										# code... 
-									echo 'Result : '  . $search . ' | Company : ' . $company . ' | Function : ' . $category; 
-									    break;
-									case 'byfunction':
-										# code... 
-									echo 'Result : '  . $search . ' | Function : ' . $category; 
-									    break;
-
-									case 'bytitle':
-										# code... 
-									echo 'Result : '  . $search; 
-									    break;
-									
-									default:
-										# code...
-										break;
-								}
+                                                case 'bytitle':
+                                                    # code... 
+                                                echo 'Result : '  . $search; 
+                                                    break;
+                                                
+                                                default:
+                                                    # code...
+                                                    break;
+                                            }*/
 
 
-								?>
-							</div>
-						</div>
-						<div class="table-container">
-							<table class="table table-filter">
-								<tbody>
-									<?php 
-
-									 $search = isset($_POST['SEARCH']) ? $_POST['SEARCH'] : '';
-									 $company = isset($_POST['COMPANY']) ? $_POST['COMPANY'] : '';
-									 $category = isset($_POST['CATEGORY']) ? $_POST['CATEGORY'] : '';
-
-										$sql = "SELECT * FROM `t_empleos` j, `t_compania` c 
-										WHERE j.`COMPANYID`=c.`COMPANYID` AND COMPANYNAME LIKE '%{$company}%' AND CATEGORY LIKE '%{$category}%' AND (`OCCUPATIONTITLE` LIKE '%{$search}%' OR `JOBDESCRIPTION` LIKE '%{$search}%' OR `QUALIFICATION_WORKEXPERIENCE` LIKE '%{$search}%')";
-										$mydb->setQuery($sql);
-										$cur = $mydb->executeQuery();
-										$maxrow = $mydb->num_rows($cur);
-
-										if ($maxrow > 0) {
-											# code... 
-										$res = $mydb->loadResultList();
-										foreach ($res as $row) { 
-									?>
-									<tr>  
-										<td> 
-											<div class="media">
-												<a href="#" class="pull-left">
-													<!-- <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo"> -->
-											     <span class="fa fa-building-o"></span>
-												</a>
-												<div class="media-body">
-													<span class="media-meta pull-right"><?php echo $row->OCCUPATIONTITLE; ?></span>
-													<h4 class="title">
-														<a href="index.php?q=viewjob&search=<?php echo $row->JOBID ?>">
-														<?php echo $row->OCCUPATIONTITLE; ?> 
-													    </a>
-														<span class="pull-right pagado">(Company <?php echo $row->COMPANYNAME ?>)</span>
-													</h4>
-													<p class="summary"><?php echo $row->JOBDESCRIPTION; ?></p>
-												</div>
-											</div> 
-										</td>
-									</tr>
-                                    
-								<?php } }else {
-									echo '<tr><td>No result found!.....</td></tr>';
-
-								}?>
-								 
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div> 
-			</div>
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>-->
+                        <?php 
+                        $search = isset($_POST['SEARCH']) ? $_POST['SEARCH'] : '';
+                        $company = isset($_POST['COMPANY']) ? $_POST['COMPANY'] : '';
+                        $category = isset($_POST['CATEGORY']) ? $_POST['CATEGORY'] : '';
+                        $sql = "SELECT * FROM `t_empleos` j, `t_compania` c 
+                            WHERE j.`COMPANYID`=c.`COMPANYID` AND COMPANYNAME LIKE '%{$company}%' AND CATEGORY LIKE '%{$category}%' AND (`OCCUPATIONTITLE` LIKE '%{$search}%' OR `JOBDESCRIPTION` LIKE '%{$search}%' OR `QUALIFICATION_WORKEXPERIENCE` LIKE '%{$search}%')";
+                        $mydb->setQuery($sql);
+                        $cur = $mydb->executeQuery();
+                        $maxrow = $mydb->num_rows($cur);
+                        if ($maxrow > 0) {
+                            $res = $mydb->loadResultList();
+                            foreach ($res as $row) {  ?>
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="single-job wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
+                                        <div class="job-image">
+                                            <img src="http://localhost:8888/chamba/Assets/images/jobs/img1.png" alt="#">
+                                        </div>
+                                        <div class="job-content">
+                                            <h4><a href="#"><?php echo $row->OCCUPATIONTITLE; ?></a></h4>
+                                            <p><?php echo $row->JOBDESCRIPTION; ?></p>
+                                            <ul>
+                                                <li><i class="lni lni-website"></i><a href="#"><?php echo $row->COMPANYNAME ?></a></li>
+                                                <li><i class="lni lni-dollar"></i><?php echo $row->COMPANYNAME ?></li>
+                                                <li><i class="lni lni-map-marker"></i><?php echo $row->COMPANYNAME ?></li>
+                                            </ul>
+                                        </div>
+                                        <div class="job-button">
+                                            <ul>
+                                                <li><a href="index.php?q=viewjob&search=<?php echo $row->JOBID ?>">Ver oferta</a></li>
+                                                <li><span>Remoto</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php }
+                        }else{
+                            echo '<tr><td>Sin resultado...</td></tr>';
+                        }
+                        ?>
+                    </div>  
+                </div>
+            </div>  
 		</section>
-		
 	</div>
 </div>

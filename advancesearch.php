@@ -25,11 +25,11 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-xs-12">
                             <label class="col-sm-3">Buscar:</label>
-                            <input type="text" class="form-control" type="" name="SEARCH" placeholder="Buscar por">
+                            <input type="text" class="form-control" name="SEARCH" placeholder="Buscar por">
                         </div>
                         <div class="col-lg-3 col-md-3 col-xs-12">
                             <label class="col-sm-3">Empresa:</label>
-                            <select class="form-select" name="COMPANY">
+                            <select class="form-select form-select-lg" name="COMPANY">
                                 <option value="">Todos</option>
                                 <?php
                                     $sql = "SELECT * FROM t_compania";
@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3 col-xs-12">
                             <label class="col-sm-3">Funcion:</label>
-                            <select class="form-select" name="CATEGORY">
+                            <select class="form-select form-select-lg" name="CATEGORY">
                                 <option value="">Todos</option>
                                 <?php
                                     $sql = "SELECT * FROM `t_categoria`";
@@ -55,7 +55,7 @@
                                 ?>
                             </select>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-xs-12 button">
+                        <div class="col-lg-2 col-md-2 col-xs-12 button d-flex align-items-end">
                             <button type="submit" name="submit" class="btn btn-common float-right">Buscar</button>
                         </div>
                     </div>

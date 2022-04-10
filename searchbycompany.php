@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3 col-xs-12">
                             <label class="col-sm-3">Empresa:</label>
-                            <select class="form-select" name="COMPANY">
+                            <select class="form-select form-select-lg" name="COMPANY">
                                 <option value="">Todos</option>
                                 <?php
                                     $sql = "SELECT * FROM t_compania";
@@ -41,7 +41,7 @@
                                 ?>
                             </select>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-xs-12 button">
+                        <div class="col-lg-2 col-md-2 col-xs-12 button d-flex align-items-en">
                             <button type="submit" name="submit" class="btn btn-common float-right">Buscar</button>
                         </div>
                     </div>
