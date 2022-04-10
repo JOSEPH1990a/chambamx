@@ -1,10 +1,14 @@
-# chambamx
+$ tree -d
 
-#!/bin/bash
-
-#File: tree-md
-
-tree=$(tree -tf --noreport -I '*~' --charset ascii $1 |
-       sed -e 's/| \+/  /g' -e 's/[|`]-\+/ */g' -e 's:\(* \)\(\(.*/\)\([^/]\+\)\):\1[\4](\2):g')
-
-printf "# Project tree\n\n${tree}"
+data
+├── cats_vs_dogs
+│   ├── test_cat_dog
+│   ├── testing
+│   │   ├── cats
+│   │   └── dogs
+│   └── training
+│       ├── cats
+│       └── dogs
+└── PetImages
+    ├── Cat
+    └── Dog
