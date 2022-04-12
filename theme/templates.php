@@ -42,7 +42,7 @@
                                             <li class="nav-item">
                                                 <a id="nav-inicio" class="active" href="<?php echo web_root; ?>index.php">Inicio</a>
                                             </li>
-                                            <li class="nav-item"><a href="#">Buscar empleos</a>
+                                            <li class="nav-item"><a href="<?php echo web_root; ?>index.php?q=advancesearch">Buscar empleos</a>
                                                 <ul class="sub-menu">
                                                     <li class="<?php  if(isset($_GET['q'])) { if($_GET['q']=='advancesearch'){ echo 'active'; }else{ echo ''; }}  ?>"><a href="<?php echo web_root; ?>index.php?q=advancesearch"">Busqueda avanzada</a></li>
                                                     <li><a href="<?php echo web_root; ?>index.php?q=search-company">Empleos por compañia</a></li>
@@ -283,6 +283,8 @@
  <script type="text/javascript">
    
      $(function () {
+        $('#example').DataTable();
+
     $("#dash-table").DataTable();
     $('#dash-table2').DataTable({
       "paging": true,
