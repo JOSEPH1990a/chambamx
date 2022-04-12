@@ -1,3 +1,4 @@
+```bash
 chambamx/
 ┣ admin/
 ┃ ┣ applicants/
@@ -107,3 +108,4 @@ chambamx/
 ┣ searchbytitle.php
 ┣ success.php
 ┗ viewjob.php
+```
