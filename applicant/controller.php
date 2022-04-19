@@ -102,7 +102,7 @@ global $mydb;
 		$picture = UploadImage();
 		$location = "photos/". $picture ;
 
-		$sql = "INSERT INTO `t_archivos_cv` (`JOBID`, `FILE_NAME`, `FILE_LOCATION`, `USERATTACHMENTID`) 
+		$sql = "INSERT INTO `t_archivos_cv` (`id_empleo`, `nombre_archivo`, `ubicacion_archivo`, `id_usuario_subido`) 
 		VALUES ('".$_SESSION['APPLICANTID']."','','Resume','{$location}','".$_SESSION['APPLICANTID']."')";
 		$mydb->setQuery($sql); 
 		$res = $mydb->executeQuery();

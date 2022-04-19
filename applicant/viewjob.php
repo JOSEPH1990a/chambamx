@@ -19,7 +19,7 @@ global $mydb;
 	$comp = $company->single_company($jobreg->COMPANYID);
 	 // `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`
 
-	$sql = "SELECT * FROM `t_archivos_cv` WHERE `FILEID`=" .$jobreg->FILEID;
+	$sql = "SELECT * FROM `t_archivos_cv` WHERE `id_archivo`=" .$jobreg->FILEID;
 	$mydb->setQuery($sql);
 	$attachmentfile = $mydb->loadSingleResult();
 

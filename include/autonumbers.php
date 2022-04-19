@@ -1,7 +1,7 @@
 <?php
 require_once(LIB_PATH.DS.'database.php');
 class Autonumber {
-	protected static  $tblname = "tblautonumbers";
+	protected static  $tblname = "t_autonumeracion";
 
 	function dbfields () {
 		global $mydb;
@@ -12,23 +12,23 @@ class Autonumber {
   	function single_autonumber($id=""){
 			global $mydb;
 			$mydb->setQuery("SELECT * FROM ".self::$tblname." 
-				Where AUTOID= '{$id}' LIMIT 1");
+				Where auto_id= '{$id}' LIMIT 1");
 			$cur = $mydb->loadSingleResult();
 			return $cur;
 	}
  
 	// function set_autonumber($id=""){
 	// 		global $mydb;
-	// 		$mydb->setQuery("SELECT concat(`AUTOSTART`, `AUTOEND`) AS 'AUTO' FROM ".self::$tblname." 
-	// 			Where AUTOID= '{$id}' LIMIT 1");
+	// 		$mydb->setQuery("SELECT concat(`auto_start`, `auto_end`) AS 'AUTO' FROM ".self::$tblname." 
+	// 			Where auto_id= '{$id}' LIMIT 1");
 	// 		$cur = $mydb->loadSingleResult();
 	// 		return $cur;
 	// } 
 
-    function set_autonumber($Autokey){
+    function set_autonumber($auto_key){
 			global $mydb;
-			$mydb->setQuery("SELECT concat(`AUTOSTART`, `AUTOEND`) AS 'AUTO' FROM ".self::$tblname." 
-				Where AUTOKEY= '{$Autokey}' LIMIT 1");
+			$mydb->setQuery("SELECT concat(`auto_start`, `auto_end`) AS 'AUTO' FROM ".self::$tblname." 
+				Where auto_key= '{$auto_key}' LIMIT 1");
 			$cur = $mydb->loadSingleResult();
 			return $cur;
 	} 
@@ -115,7 +115,7 @@ class Autonumber {
 		}
 		$sql = "UPDATE ".self::$tblname." SET ";
 		$sql .= join(", ", $attribute_pairs);
-		$sql .= " WHERE AUTOID='{$id}'";
+		$sql .= " WHERE auto_id='{$id}'";
 	  $mydb->setQuery($sql);
 	 	if(!$mydb->executeQuery()) return false; 	
 		
@@ -124,8 +124,8 @@ class Autonumber {
 	public function auto_update($id="") {
 	  global $mydb;
 		$sql = "UPDATE ".self::$tblname." SET ";
-		$sql .= "AutoEnd = AutoEnd + AutoInc";
-		$sql .= " WHERE AUTOKEY='{$id}'";
+		$sql .= "auto_end = auto_end + auto_inc";
+		$sql .= " WHERE auto_key='{$id}'";
 	  $mydb->setQuery($sql);
 	 	if(!$mydb->executeQuery())  return false; 	
 		
@@ -134,7 +134,7 @@ class Autonumber {
 	public function delete($id="") {
 		global $mydb;
 		  $sql = "DELETE FROM ".self::$tblname;
-		  $sql .= " WHERE AUTOKEY='{$id}'";
+		  $sql .= " WHERE auto_key='{$id}'";
 		  $sql .= " LIMIT 1 ";
 		  $mydb->setQuery($sql);
 		  

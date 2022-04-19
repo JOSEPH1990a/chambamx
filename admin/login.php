@@ -2,7 +2,7 @@
     require_once("../include/initialize.php");
 ?>
 <?php
-    if(isset($_SESSION['ADMIN_USERID'])){
+    if(isset($_SESSION['id_user_admin'])){
         redirect(web_root."admin/index.php");
     }
 ?>
@@ -74,18 +74,18 @@
                 $user = new User();
                 $res = $user->userAuthentication($email, $h_upass);
                 if ($res==true) { 
-                    message("You logon as ".$_SESSION['ROLE'].".","success");
-                    $_SESSION['ADMIN_USERID'] = $_SESSION['USERID'];
-                    $_SESSION['ADMIN_FULLNAME'] = $_SESSION['FULLNAME'] ;
-                    $_SESSION['ADMIN_USERNAME'] =$_SESSION['USERNAME'];
-                    $_SESSION['ADMIN_ROLE'] = $_SESSION['ROLE'];
-                    $_SESSION['ADMIN_PICLOCATION'] = $_SESSION['PICLOCATION'];
-                    unset( $_SESSION['USERID'] );
-                    unset( $_SESSION['FULLNAME'] );
-                    unset( $_SESSION['USERNAME'] );
-                    unset( $_SESSION['PASS'] );
-                    unset( $_SESSION['ROLE'] );
-                    unset($_SESSION['PICLOCATION']);
+                    message("You logon as ".$_SESSION['rol'].".","success");
+                    $_SESSION['id_user_admin'] = $_SESSION['is_user'];
+                    $_SESSION['nombre_completo_admin'] = $_SESSION['nombre_completo'] ;
+                    $_SESSION['nombre_usuario_admin'] =$_SESSION['nombre_usuario'];
+                    $_SESSION['rol_admin'] = $_SESSION['rol'];
+                    $_SESSION['url_imagen_admin'] = $_SESSION['url_imagen'];
+                    unset( $_SESSION['id_user'] );
+                    unset( $_SESSION['nombre_completo'] );
+                    unset( $_SESSION['nombre_usuario'] );
+                    unset( $_SESSION['contrasenia'] );
+                    unset( $_SESSION['rol'] );
+                    unset($_SESSION['url_imagen']);
                     redirect(web_root."admin/index.php");
                 }else{
                     message("La cuenta no existe ! Porfavor, contacte con el Administrador", "error");

@@ -23,7 +23,7 @@ function doSubmitApplication() {
 		$autonum = New Autonumber();
 		$applicantid = $autonum->set_autonumber('APPLICANT');
 		$autonum = New Autonumber();
-		$fileid = $autonum->set_autonumber('FILEID');
+		$fileid = $autonum->set_autonumber('id_archivo');
 
 		@$picture = UploadImage();
 		@$location = "photos/". $picture ;
@@ -36,7 +36,7 @@ function doSubmitApplication() {
 			
 			if (isset($_SESSION['APPLICANTID'])) {
 
-				$sql = "INSERT INTO `t_archivos_cv` (FILEID,`USERATTACHMENTID`, `FILE_NAME`, `FILE_LOCATION`, `JOBID`) 
+				$sql = "INSERT INTO `t_archivos_cv` (t_autonumeracion,`id_usuario_subido`, `nombre_archivo`, `ubicacion_archivo`, `id_empleo`) 
 				VALUES ('". date('Y').$fileid->AUTO."','{$_SESSION['APPLICANTID']}','Resume','{$location}','{$jobid}')";
 				$mydb->setQuery($sql); 
 				$res = $mydb->executeQuery(); 
@@ -45,7 +45,7 @@ function doSubmitApplication() {
 				
 			}else{
 				 
-				$sql = "INSERT INTO `t_archivos_cv` (FILEID,`USERATTACHMENTID`, `FILE_NAME`, `FILE_LOCATION`, `JOBID`) 
+				$sql = "INSERT INTO `t_archivos_cv` (id_archivo,`id_usuario_subido`, `nombre_archivo`, `ubicacion_archivo`, `id_empleo`) 
 				VALUES ('". date('Y').$fileid->AUTO."','". date('Y').$applicantid->AUTO."','Resume','{$location}','{$jobid}')";
 				// echo $sql;exit;
 				$mydb->setQuery($sql); 

@@ -29,15 +29,15 @@
 								  </thead>  
 								  <tbody>
 								  	<?php 
-								  		$mydb->setQuery("SELECT * FROM `tblautonumbers`");
+								  		$mydb->setQuery("SELECT * FROM `t_autonumeracion`");
 								  		$cur = $mydb->loadResultList();
 
 										foreach ($cur as $result) {
 								  		echo '<tr>'; 
-							  			echo '<td>' . $result->AUTOSTART.'' . $result->AUTOEND.'</td>';
-							  			echo '<td>' . $result->AUTOKEY.'</td>';
-								  		echo '<td align="center"><a title="Edit" href="index.php?view=edit&id='.$result->AUTOID.'" class="btn btn-info btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
-								  		     <a title="Delete" href="controller.php?action=delete&id='.$result->AUTOID.'" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
+							  			echo '<td>' . $result->auto_start.'' . $result->auto_end.'</td>';
+							  			echo '<td>' . $result->auto_key.'</td>';
+								  		echo '<td align="center"><a title="Edit" href="index.php?view=edit&id='.$result->auto_id.'" class="btn btn-info btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
+								  		     <a title="Delete" href="controller.php?action=delete&id='.$result->auto_id.'" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
 								  		// echo '<td></td>';
 								  		echo '</tr>';
 								  	} 

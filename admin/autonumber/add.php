@@ -16,10 +16,10 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "AUTOSTART">Start:</label>
+                      "auto_start">Start:</label>
 
                       <div class="col-md-8">
-                         <input class="form-control input-sm" id="AUTOSTART" name="AUTOSTART" placeholder=
+                         <input class="form-control input-sm" id="auto_start" name="auto_start" placeholder=
                             "Start" type="text" value="">
                       </div>
                     </div>
@@ -28,10 +28,10 @@
                      <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "AUTOINC">INC:</label>
+                      "auto_inc">INC:</label>
 
                       <div class="col-md-8">
-                         <input class="form-control input-sm" id="AUTOINC" name="AUTOINC" placeholder=
+                         <input class="form-control input-sm" id="auto_inc" name="auto_inc" placeholder=
                             "INC" type="text" value="">
                       </div>
                     </div>
@@ -40,10 +40,10 @@
                    <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "AUTOEND">End:</label>
+                      "auto_end">End:</label>
 
                       <div class="col-md-8">
-                         <input class="form-control input-sm" id="AUTOEND" name="AUTOEND" placeholder=
+                         <input class="form-control input-sm" id="auto_end" name="auto_end" placeholder=
                             "End" type="text" value="">
                       </div>
                     </div>
@@ -52,10 +52,10 @@
                      <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "AUTOKEY">Key:</label>
+                      "auto_key">Key:</label>
 
                       <div class="col-md-8">
-                         <input class="form-control input-sm" id="AUTOKEY" name="AUTOKEY" placeholder=
+                         <input class="form-control input-sm" id="auto_key" name="auto_key" placeholder=
                             "Key" type="text" value="">
                       </div>
                     </div>

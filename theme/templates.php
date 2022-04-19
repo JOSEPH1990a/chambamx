@@ -30,7 +30,7 @@
                             <div class="col-lg-12">      
                                 <nav class="navbar navbar-expand-lg">
                                     <a class="navbar-brand logo" href="<?php echo web_root; ?>index.php">
-                                        <img class="logo1" src="<?php echo web_root ?>plugins/home-plugins/img/logo.svg" alt="Logo">
+                                        <img class="logo1" src="<?php echo web_root ?>plugins/home-plugins/img/logo_chambamx.png" alt="Logo">
                                     </a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="toggler-icon"></span>
@@ -58,13 +58,13 @@
                                                     $cur = $mydb->loadResultList();
                                                     foreach ($cur as $result) {
                                                         if (isset($_GET['search'])) {
-                                                            if ($result->CATEGORY==$_GET['search']) {
-                                                                $viewresult = '<li class="active"><a href="'.web_root.'index.php?q=category&search='.$result->CATEGORY.'">'.'Empleos de'.$result->CATEGORY.'</a></li>';
+                                                            if ($result->nombre_categoria==$_GET['search']) {
+                                                                $viewresult = '<li class="active"><a href="'.web_root.'index.php?q=category&search='.$result->nombre_categoria.'">'.'Empleos de'.$result->nombre_categoria.'</a></li>';
                                                             }else{
-                                                                $viewresult = '<li><a href="'.web_root.'index.php?q=category&search='.$result->CATEGORY.'">'.'Empleos de'.$result->CATEGORY.'</a></li>';
+                                                                $viewresult = '<li><a href="'.web_root.'index.php?q=category&search='.$result->nombre_categoria.'">'.'Empleos de'.$result->nombre_categoria.'</a></li>';
                                                             }
                                                         }else{
-                                                            $viewresult = '<li><a href="'.web_root.'index.php?q=category&search='.$result->CATEGORY.'">'.'Empleos de'.$result->CATEGORY.'</a></li>';
+                                                            $viewresult = '<li><a href="'.web_root.'index.php?q=category&search='.$result->nombre_categoria.'">'.'Empleos de'.$result->nombre_categoria.'</a></li>';
                                                         } 
                                                         echo $viewresult;
                                                     }
@@ -163,7 +163,7 @@
                         <div class="col-lg-4 col-md-6 col-12">    
                             <div class="f-about single-footer">
                                 <div class="logo">
-                                    <a href="#"><img src="<?php echo web_root ?>plugins/home-plugins/img/logo.svg" alt="Logo"></a>
+                                    <a href="#"><img src="<?php echo web_root ?>plugins/home-plugins/img/logo_chambamx.png" alt="Logo"></a>
                                 </div>
                                 <p>Ponte en contacto con nosotros a alguno de los siguientes medios</p>
                                 <ul class="contact-address">

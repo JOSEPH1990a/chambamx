@@ -4,9 +4,9 @@
      }
 
 
-  $AUTOKEY = $_GET['id'];
+  $auto_key = $_GET['id'];
   $autonumber = New Autonumber();
-  $singleauto = $autonumber->single_autonumber($AUTOKEY);
+  $singleauto = $autonumber->single_autonumber($auto_key);
 
 ?> 
  <form class="form-horizontal span6" action="controller.php?action=edit" method="POST">
@@ -20,12 +20,12 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "AUTOSTART">Start:</label>
+                      "auto_start">Start:</label>
 
                       <div class="col-md-8">
-                      <input  type="hidden" name="AUTOID" id="AUTOID" value="<?php  echo $singleauto->AUTOID; ?>">
-                         <input class="form-control input-sm" id="AUTOSTART" name="AUTOSTART" placeholder=
-                            "Start" type="text" value="<?php  echo $singleauto->AUTOSTART; ?>">
+                      <input  type="hidden" name="auto_id" id="auto_id" value="<?php  echo $singleauto->auto_id; ?>">
+                         <input class="form-control input-sm" id="auto_start" name="auto_start" placeholder=
+                            "Start" type="text" value="<?php  echo $singleauto->auto_start; ?>">
                       </div>
                     </div>
                   </div>
@@ -33,11 +33,11 @@
                      <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "AUTOINC">INC:</label>
+                      "auto_inc">INC:</label>
 
                       <div class="col-md-8">
-                         <input class="form-control input-sm" id="AUTOINC" name="AUTOINC" placeholder=
-                            "INC" type="text" value="<?php  echo $singleauto->AUTOINC; ?>">
+                         <input class="form-control input-sm" id="auto_inc" name="auto_inc" placeholder=
+                            "INC" type="text" value="<?php  echo $singleauto->auto_inc; ?>">
                       </div>
                     </div>
                   </div>
@@ -45,11 +45,11 @@
                    <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "AUTOEND">End:</label>
+                      "auto_end">End:</label>
 
                       <div class="col-md-8">
-                         <input class="form-control input-sm" id="AUTOEND" name="AUTOEND" placeholder=
-                            "End" type="text" value="<?php  echo $singleauto->AUTOEND; ?>">
+                         <input class="form-control input-sm" id="auto_end" name="auto_end" placeholder=
+                            "End" type="text" value="<?php  echo $singleauto->auto_end; ?>">
                       </div>
                     </div>
                   </div>
@@ -57,11 +57,11 @@
                    <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "AUTOKEY">End:</label>
+                      "auto_key">End:</label>
 
                       <div class="col-md-8">
-                         <input class="form-control input-sm" id="AUTOKEY" name="AUTOKEY" placeholder=
-                            "Key" type="text" value="<?php  echo $singleauto->AUTOKEY; ?>">
+                         <input class="form-control input-sm" id="auto_key" name="auto_key" placeholder=
+                            "Key" type="text" value="<?php  echo $singleauto->auto_key; ?>">
                       </div>
                     </div>
                   </div>
