@@ -80,18 +80,18 @@
                                             <li class="nav-item <?php  if(isset($_GET['q'])) { if($_GET['q']=='Contact'){ echo 'active'; }else{ echo ''; }}  ?>"><a href="<?php echo web_root; ?>index.php?q=Contact">Contacto </a>
                                             </li>
                                             <?php
-                                                if(isset($_SESSION['APPLICANTID'])){
-                                                    $sql = "SELECT count(*) as 'COUNTNOTIF' FROM `t_empleos` ORDER BY `DATEPOSTED` DESC";
+                                                if(isset($_SESSION['id_candidato'])){
+                                                    $sql = "SELECT count(*) as 'numero_notificacion' FROM `t_empleos` ORDER BY `fecha_publicacion` DESC";
                                                     $mydb->setQuery($sql);
                                                     $showNotif = $mydb->loadSingleResult();
-                                                    $notif =isset($showNotif->COUNTNOTIF) ? $showNotif->COUNTNOTIF : 0;
+                                                    $notif =isset($showNotif->numero_notificacion) ? $showNotif->numero_notificacion : 0;
                                                     $applicant = new Applicants();
-                                                    $appl  = $applicant->single_applicant($_SESSION['APPLICANTID']);
-                                                    $sql ="SELECT count(*) as 'COUNT' FROM `t_empleos_aplicados` WHERE `PENDINGAPPLICATION`=0 AND `HVIEW`=0 AND `APPLICANTID`='{$appl->APPLICANTID}'";
+                                                    $appl  = $applicant->single_applicant($_SESSION['id_candidato']);
+                                                    $sql ="SELECT count(*) as 'COUNT' FROM `t_empleos_aplicados` WHERE `aplicacion_pendiente`=0 AND `visto`=0 AND `id_candidato`='{$appl->id}'";
                                                     $mydb->setQuery($sql);
                                                     $showMsg = $mydb->loadSingleResult();
                                                     $msg =isset($showMsg->COUNT) ? $showMsg->COUNT : 0; 
-                                                    echo '<li class="nav-item"><a class="nav-link " href="#"><img src="'.web_root.'applicant/'.$appl->APPLICANTPHOTO.'" alt="Avatar"> '. $appl->FNAME. ' '.$appl->LNAME .'<i class="fa fa-caret-down"></i></a>
+                                                    echo '<li class="nav-item"><a class="nav-link " href="#"><img src="'.web_root.'applicant/'.$appl->foto_candidato.'" alt="Avatar"> '. $appl->nombre. ' '.$appl->apellido_paterno .'<i class="fa fa-caret-down"></i></a>
                                                         <ul class="sub-menu">
                                                         <li><a href="'.web_root.'applicant/"><i class="fa fa-user"></i> Perfil</a></li>
                                                         <li><a href="'.web_root.'logout.php"><i class="fa fa-sign-out"> </i> Salir</a></li>
@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="button">
                                         <?php
-                                            if(isset($_SESSION['APPLICANTID'])){
+                                            if(isset($_SESSION['id_candidato'])){
                                                 
                                             }else{ ?>
                                                 <a href="javacript:" data-toggle="modal" data-target="#login" class="login"><i class="lni lni-lock-alt"></i>Login</a>
@@ -126,7 +126,7 @@
             <br><br><br><br>
         </body>
 <?php
-    if (!isset($_SESSION['APPLICANTID'])) { 
+    if (!isset($_SESSION['id_candidato'])) { 
         include("login.php");
     }
 ?>

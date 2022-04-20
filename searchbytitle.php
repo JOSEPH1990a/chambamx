@@ -44,7 +44,7 @@
                         <div class="col-lg-12 col-md-12 col-xs-12">
                             <label class="col-sm-3">Buscar:</label>
                             <div class="row">
-                                <div class="col-10"><input type="text" class="form-control" type="" name="SEARCH" placeholder="Buscar por"></div>
+                                <div class="col-10"><input type="text" class="form-control" type="" name="buscarpor" placeholder="Buscar por"></div>
                                 <div class="button col-2"><button type="submit" name="submit" class="btn btn-common float-right">Buscar</button></div>
                             </div>
                         </div>

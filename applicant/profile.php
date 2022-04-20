@@ -1,7 +1,7 @@
 <?php   
     $view = isset($_GET['view']) ? $_GET['view'] :"";  
 	  $appl = New Applicants();
-	  $applicant = $appl->single_applicant($_SESSION['APPLICANTID']); 
+	  $applicant = $appl->single_applicant($_SESSION['id_candidato']); 
   ?>
   <style type="text/css">
 /*    #image-container {

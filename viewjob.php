@@ -6,7 +6,8 @@
     }else{
         $jobid = '';
     }
-    $sql = "SELECT * FROM `t_compania` c,`t_empleos` j WHERE c.`COMPANYID`=j.`COMPANYID` AND JOBID LIKE '%" . $jobid ."%' ORDER BY DATEPOSTED DESC" ;
+    
+    $sql = "SELECT j.id,j.salario,j.titulo_empleo,c.nombre_compania,c.direccion_compania,j.descripcion_empleo,j.fecha_publicacion,j.num_empleados_requeridos,j.duracion_empleo,j.anios_experiencia,j.sector_vacante,c.nombre_compania,c.direccion_compania,j.preferencia_sexo FROM `t_compania` c,`t_empleos` j WHERE c.`id`=j.`id_compania` AND j.`id` LIKE '%" . $jobid ."%' ORDER BY fecha_publicacion DESC" ;
     $mydb->setQuery($sql);
     $cur = $mydb->loadResultList();
     foreach ($cur as $result) { ?> 
@@ -20,20 +21,20 @@
                                     <a href="#" style="border-radius: 4px; overflow: hidden;"><img src="assets/images/universal-image/job-details.png" alt="Company Logo"></a>
                                 </div>
                                 <div class="salary-type col-auto order-sm-3">
-                                    <span class="salary-range"><?php echo number_format($result->SALARIES,2);  ?></span>
+                                    <span class="salary-range"><?php echo number_format($result->salario,2);  ?></span>
                                     <!--<span class="badge badge-success">Full Time</span>-->
                                 </div>
                                 <div class="content col">
-                                    <h5 class="title"><?php echo $result->OCCUPATIONTITLE ;?> </h5>
+                                    <h5 class="title"><?php echo $result->titulo_empleo ;?> </h5>
                                     <ul class="meta">
-                                        <li><strong class="text-primary"><a href="http://www.graygrids.com"><?php echo  $result->COMPANYNAME; ?></a></strong></li>
-                                        <li><i class="lni lni-map-marker"></i> <?php echo  $result->COMPANYADDRESS; ?></li>
+                                        <li><strong class="text-primary"><a href="http://www.graygrids.com"><?php echo  $result->nombre_compania; ?></a></strong></li>
+                                        <li><i class="lni lni-map-marker"></i> <?php echo  $result->direccion_compania; ?></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="job-details-body">
                                 <h6 class="mb-3">Job Description</h6>
-                                <p><?php echo $result->JOBDESCRIPTION ;?></p>
+                                <p><?php echo $result->descripcion_empleo ;?></p>
                                 <h6 class="mb-3 mt-4">Responsibilities</h6>
                                 <ul>
                                     <!--<li>Proven work experienceas a web designer</li>
@@ -85,7 +86,7 @@
                                             <!--<a href="bookmarked.html" class="d-block btn"><i class="fa fa-heart-o mr-1"></i> Save Job</a>-->
                                         </div>
                                         <div class="col-xl-auto col-lg-12 col-sm-auto col-12 p-2">
-                                            <a href="<?php echo web_root; ?>index.php?q=apply&job=<?php echo $result->JOBID;?>&view=personalinfo" class="d-block btn btn-alt">Aplicar ahora</a>
+                                            <a href="<?php echo web_root; ?>index.php?q=apply&job=<?php echo $result->id;?>&view=personalinfo" class="d-block btn btn-alt">Aplicar ahora</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,23 +95,23 @@
                                 <div class="inner">
                                     <h6 class="title">Detalles</h6>
                                     <ul class="job-overview list-unstyled">
-                                        <li><strong>Publicado en:</strong> <?php echo date_format(date_create($result->DATEPOSTED),'M d, Y'); ?></li>
-                                        <li><i class="fp-ht-bed"></i>Required No. of Employee's : <?php echo $result->REQ_NO_EMPLOYEES; ?></li>
-                                        <li><i class="fa fa-sun-"></i>Duration of Employment : <?php echo $result->DURATION_EMPLOYEMENT; ?></li>
-                                        <li><i class="fp-ht-dumbbell"></i>Qualification/Work Experience : <?php echo $result->QUALIFICATION_WORKEXPERIENCE; ?></li>
-                                        <li><i class="fp-ht-computer"></i>Sector of Vacancy : <?php echo $result->SECTOR_VACANCY; ?></li>
+                                        <li><strong>Publicado en:</strong> <?php echo date_format(date_create($result->fecha_publicacion),'M d, Y'); ?></li>
+                                        <li><i class="fp-ht-bed"></i>Required No. of Employee's : <?php echo $result->num_empleados_requeridos; ?></li>
+                                        <li><i class="fa fa-sun-"></i>Duration of Employment : <?php echo $result->duracion_empleo; ?></li>
+                                        <li><i class="fp-ht-dumbbell"></i>Qualification/Work Experience : <?php echo $result->anios_experiencia; ?></li>
+                                        <li><i class="fp-ht-computer"></i>Sector of Vacancy : <?php echo $result->sector_vacante; ?></li>
                                         <!--<li><strong>Vacancy:</strong> 02</li>
                                         <li><strong>Employment Status:</strong> Full-time</li>
                                         <li><strong>Experience:</strong> 2 to 3 year(s)</li>
                                         <li><strong>Job Location:</strong> Willshire Glen</li>-->
-                                        <p>Employer :  <?php echo  $result->COMPANYNAME; ?></p> 
-                                                <p>Location :  <?php echo  $result->COMPANYADDRESS; ?></p>
-                                        <li><?php echo $result->QUALIFICATION_WORKEXPERIENCE ;?></li> 
+                                        <p>Employer :  <?php echo  $result->nombre_compania; ?></p> 
+                                                <p>Location :  <?php echo  $result->direccion_compania; ?></p>
+                                        <li><?php echo $result->anios_experiencia ;?></li> 
 
-                                        <li><strong>Salary:</strong> <?php echo number_format($result->SALARIES,2);  ?></li>
-                                        <li><strong>Gender:</strong> <?php echo $result->PREFEREDSEX; ?></li>
+                                        <li><strong>Salary:</strong> <?php echo number_format($result->salario,2);  ?></li>
+                                        <li><strong>Gender:</strong> <?php echo $result->preferencia_sexo; ?></li>
                                         <li><strong>Application Deadline:</strong> Dec 15, 2023</li>
-                                        <a href="<?php echo web_root; ?>index.php?q=apply&job=<?php echo $result->JOBID;?>&view=personalinfo" class="btn btn-main btn-next-tab">Apply Now !</a>
+                                        <a href="<?php echo web_root; ?>index.php?q=apply&job=<?php echo $result->id;?>&view=personalinfo" class="btn btn-main btn-next-tab">Apply Now !</a>
 
                                     </ul>
                                 </div>

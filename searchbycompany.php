@@ -25,18 +25,18 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-xs-12">
                             <label class="col-sm-3">Buscar:</label>
-                            <input type="text" class="form-control" type="" name="SEARCH" placeholder="Buscar por">
+                            <input type="text" class="form-control" type="" name="buscarpor" placeholder="Buscar por">
                         </div>
                         <div class="col-lg-3 col-md-3 col-xs-12">
                             <label class="col-sm-3">Empresa:</label>
-                            <select class="form-select form-select-lg" name="COMPANY">
+                            <select class="form-select form-select-lg" name="compania">
                                 <option value="">Todos</option>
                                 <?php
                                     $sql = "SELECT * FROM t_compania";
                                     $mydb->setQuery($sql);
                                     $res = $mydb->loadResultList();
                                     foreach ($res as $row) { 
-                                        echo '<option>'.$row->COMPANYNAME.'</option>';
+                                        echo '<option>'.$row->nombre_compania.'</option>';
                                     }
                                 ?>
                             </select>

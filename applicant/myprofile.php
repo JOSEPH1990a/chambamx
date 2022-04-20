@@ -1,6 +1,6 @@
 <?php 
     $applicant = new Applicants();
-    $appl = $applicant->single_applicant($_SESSION['APPLICANTID']);
+    $appl = $applicant->single_applicant($_SESSION['id_candidato']);
 ?>
 <style type="text/css">
     .form-group {
@@ -17,8 +17,8 @@
         <div class="col-lg-5 col-md-5 col-12">
             <div class="name-head">
                 <a>
-                    <img title="profile image"  class="img-circular" data-target="#myModal"  data-toggle="modal"  src="<?php echo web_root.'applicant/'.$appl->APPLICANTPHOTO; ?>"> </a>
-                <h4><a class="name" href="#"></a><?php echo $appl->FNAME .' '.$appl->LNAME; ?> </h4>
+                    <img title="profile image"  class="img-circular" data-target="#myModal"  data-toggle="modal"  src="<?php echo web_root.'applicant/'.$appl->foto_candidato; ?>"> </a>
+                <h4><a class="name" href="#"></a><?php echo $appl->nombre .' '.$appl->apellido_paterno; ?> </h4>
                 <!--<p><a class="deg" href="#">Product Designer</a></p>
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">10%</div>
@@ -38,15 +38,15 @@
                 <h5 class="title-main">Informacion de Contatco</h5>
                 <div class="single-list">
                     <h5 class="title">Dirección</h5>
-                    <p><?php echo($appl->ADDRESS) ?></p>
+                    <p><?php echo($appl->direccion) ?></p>
                 </div>
                 <div class="single-list">
                     <h5 class="title">E-mail</h5>
-                    <p><?php echo($appl->EMAILADDRESS) ?></p>
+                    <p><?php echo($appl->email) ?></p>
                 </div>
                 <div class="single-list">
                     <h5 class="title">Telefono</h5>
-                    <p><?php echo($appl->CONTACTNO) ?></p>
+                    <p><?php echo($appl->telefono) ?></p>
                 </div>
                 <!--<div class="single-list">
                     <h5 class="title">Sitio Web</h5>

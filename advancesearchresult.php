@@ -1,8 +1,8 @@
 <?php 
 	$searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['searchfor'] : '';
-    $search = isset($_POST['SEARCH']) ? ($_POST['SEARCH']!='') ? $_POST['SEARCH'] : 'All' : 'All';
-    $company = isset($_POST['COMPANY']) ? ($_POST['COMPANY']!='') ? $_POST['COMPANY'] : 'All' : 'All';
-    $category = isset($_POST['CATEGORY']) ? ($_POST['CATEGORY']!='') ? $_POST['CATEGORY'] : 'All' : 'All';
+    $search = isset($_POST['buscarpor']) ? ($_POST['buscarpor']!='') ? $_POST['buscarpor'] : 'All' : 'All';
+    $company = isset($_POST['compania']) ? ($_POST['compania']!='') ? $_POST['compania'] : 'All' : 'All';
+    $category = isset($_POST['categoria']) ? ($_POST['categoria']!='') ? $_POST['categoria'] : 'All' : 'All';
 	
 ?>
 <style type="text/css">
@@ -156,11 +156,11 @@ body {
                             </div> 
                         </div>-->
                         <?php 
-                        $search = isset($_POST['SEARCH']) ? $_POST['SEARCH'] : '';
-                        $company = isset($_POST['COMPANY']) ? $_POST['COMPANY'] : '';
-                        $category = isset($_POST['CATEGORY']) ? $_POST['CATEGORY'] : '';
-                        $sql = "SELECT * FROM `t_empleos` j, `t_compania` c 
-                            WHERE j.`COMPANYID`=c.`COMPANYID` AND COMPANYNAME LIKE '%{$company}%' AND CATEGORY LIKE '%{$category}%' AND (`OCCUPATIONTITLE` LIKE '%{$search}%' OR `JOBDESCRIPTION` LIKE '%{$search}%' OR `QUALIFICATION_WORKEXPERIENCE` LIKE '%{$search}%')";
+                        $search = isset($_POST['buscarpor']) ? $_POST['buscarpor'] : '';
+                        $company = isset($_POST['compania']) ? $_POST['compania'] : '';
+                        $category = isset($_POST['categoria']) ? $_POST['categoria'] : '';
+                        $sql = "SELECT c.nombre_compania,j.titulo_empleo,j.descripcion_empleo,j.id FROM `t_empleos` j, `t_compania` c 
+                            WHERE j.`id_compania`=c.`id` AND nombre_compania LIKE '%{$company}%' AND categoria LIKE '%{$category}%' AND (`titulo_empleo` LIKE '%{$search}%' OR `descripcion_empleo` LIKE '%{$search}%' OR `anios_experiencia` LIKE '%{$search}%')";
                         $mydb->setQuery($sql);
                         $cur = $mydb->executeQuery();
                         $maxrow = $mydb->num_rows($cur);
@@ -173,17 +173,17 @@ body {
                                             <img src="http://localhost:8888/chamba/Assets/images/jobs/img1.png" alt="#">
                                         </div>
                                         <div class="job-content">
-                                            <h4><a href="#"><?php echo $row->OCCUPATIONTITLE; ?></a></h4>
-                                            <p><?php echo $row->JOBDESCRIPTION; ?></p>
+                                            <h4><a href="#"><?php echo $row->titulo_empleo; ?></a></h4>
+                                            <p><?php echo $row->descripcion_empleo; ?></p>
                                             <ul>
-                                                <li><i class="lni lni-website"></i><a href="#"><?php echo $row->COMPANYNAME ?></a></li>
-                                                <li><i class="lni lni-dollar"></i><?php echo $row->COMPANYNAME ?></li>
-                                                <li><i class="lni lni-map-marker"></i><?php echo $row->COMPANYNAME ?></li>
+                                                <li><i class="lni lni-website"></i><a href="#"><?php echo $row->nombre_compania ?></a></li>
+                                                <li><i class="lni lni-dollar"></i><?php echo $row->nombre_compania ?></li>
+                                                <li><i class="lni lni-map-marker"></i><?php echo $row->nombre_compania ?></li>
                                             </ul>
                                         </div>
                                         <div class="job-button">
                                             <ul>
-                                                <li><a href="index.php?q=viewjob&search=<?php echo $row->JOBID ?>">Ver oferta</a></li>
+                                                <li><a href="index.php?q=viewjob&search=<?php echo $row->id ?>">Ver oferta</a></li>
                                                 <li><span>Remoto</span></li>
                                             </ul>
                                         </div>

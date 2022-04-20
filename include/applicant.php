@@ -34,7 +34,7 @@ class Applicants {
 	function single_applicant($id=""){
 			global $mydb;
 			$mydb->setQuery("SELECT * FROM ".self::$tblname." 
-				Where APPLICANTID= '{$id}' LIMIT 1");
+				Where id= '{$id}' LIMIT 1");
 			$cur = $mydb->loadSingleResult();
 			return $cur;
 	}
@@ -47,7 +47,7 @@ class Applicants {
 	}
 	function applicantAuthentication($U_USERNAME,$h_pass){
 		global $mydb;
-		$mydb->setQuery("SELECT *FROM `t_candidatos` WHERE `USERNAME`='".$U_USERNAME."' AND `PASS`='".$h_pass."'");
+		$mydb->setQuery("SELECT *FROM `t_candidatos` WHERE `nombre_usuario`='".$U_USERNAME."' AND `contrasenia`='".$h_pass."'");
 		$cur = $mydb->executeQuery();
 		if($cur==false){
 			die(mysql_error());
@@ -55,8 +55,8 @@ class Applicants {
 		$row_count = $mydb->num_rows($cur);//get the number of count
 		if ($row_count == 1){
 		 $emp_found = $mydb->loadSingleResult(); 
-		 	$_SESSION['APPLICANTID']   		= $emp_found->APPLICANTID; 
-		 	$_SESSION['USERNAME'] 			= $emp_found->USERNAME;  
+		 	$_SESSION['id_candidato']   		= $emp_found->id; 
+		 	$_SESSION['nombre_usuario'] 			= $emp_found->nombre_usuario;  
 		   return true;
 		 }else{
 		 	return false;
